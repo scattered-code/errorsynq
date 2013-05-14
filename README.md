@@ -1,0 +1,4 @@
+errorsynq
+=========
+
+ErrorSynq API client
