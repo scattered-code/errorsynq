@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c2a562df-16ae-4f6a-9bb0-9cb4fcbbe1b1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>true</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://errortracking.terrasynq.net/errortracking.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ErrorTracking.xsd" MetadataType="Schema" ID="778bfd49-7903-425e-8508-f804d4f5bd1f" SourceId="1" SourceUrl="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd1" />
+    <MetadataFile FileName="ErrorTracking1.xsd" MetadataType="Schema" ID="2e88a923-173a-4144-817e-0c37db73e8a6" SourceId="1" SourceUrl="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd0" />
+    <MetadataFile FileName="ErrorTrackingService.wsdl" MetadataType="Wsdl" ID="d63037a5-94f9-44a4-804d-087bf59b53f3" SourceId="1" SourceUrl="http://errortracking.terrasynq.net/ErrorTracking.svc?wsdl" />
+    <MetadataFile FileName="ErrorTracking2.xsd" MetadataType="Schema" ID="397f5e1a-90b8-40bb-aa48-fe910914ed33" SourceId="1" SourceUrl="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd2" />
+    <MetadataFile FileName="ErrorTracking.disco" MetadataType="Disco" ID="d8a908c3-8d68-4456-af1b-e634600ee248" SourceId="1" SourceUrl="http://errortracking.terrasynq.net/ErrorTracking.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" />
+  <xs:import schemaLocation="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="SubmitError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="error" nillable="true" type="q1:TrackingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitErrorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnresolvedErrors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="siteKey" type="q2:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnresolvedErrorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="GetUnresolvedErrorsResult" nillable="true" type="q3:ArrayOfErrorTrackingSummaryModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResolvedErrors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="siteKey" type="q4:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResolvedErrorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="GetResolvedErrorsResult" nillable="true" type="q5:ArrayOfErrorTrackingSummaryModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkResolved">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="siteKey" type="q6:guid" />
+        <xs:element minOccurs="0" name="RawUrlID" type="xs:long" />
+        <xs:element minOccurs="0" name="ErrorMessageID" type="xs:long" />
+        <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrorCause" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkResolvedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MarkResolvedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllErrors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="siteKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllErrorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="GetAllErrorsResult" nillable="true" type="q7:ArrayOfTrackingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetErrorsByCause">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="siteKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="cause" type="q8:ErrorCauses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetErrorsByCauseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="GetErrorsByCauseResult" nillable="true" type="q9:ArrayOfTrackingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetErrorByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="siteKey" type="q10:guid" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetErrorByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" minOccurs="0" name="GetErrorByIDResult" nillable="true" type="q11:ErrorTrackingModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ErrorTrackingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IErrorTrackingService_SubmitError_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitError" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_SubmitError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetUnresolvedErrors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnresolvedErrors" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetUnresolvedErrors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnresolvedErrorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetResolvedErrors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResolvedErrors" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetResolvedErrors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResolvedErrorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_MarkResolved_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarkResolved" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_MarkResolved_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarkResolvedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetAllErrors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrors" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetAllErrors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllErrorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetErrorsByCause_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorsByCause" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetErrorsByCause_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorsByCauseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetErrorByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorByID" />
+  </wsdl:message>
+  <wsdl:message name="IErrorTrackingService_GetErrorByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IErrorTrackingService">
+    <wsdl:operation name="SubmitError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/SubmitError" message="tns:IErrorTrackingService_SubmitError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/SubmitErrorResponse" message="tns:IErrorTrackingService_SubmitError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnresolvedErrors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/GetUnresolvedErrors" message="tns:IErrorTrackingService_GetUnresolvedErrors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/GetUnresolvedErrorsResponse" message="tns:IErrorTrackingService_GetUnresolvedErrors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResolvedErrors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/GetResolvedErrors" message="tns:IErrorTrackingService_GetResolvedErrors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/GetResolvedErrorsResponse" message="tns:IErrorTrackingService_GetResolvedErrors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkResolved">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/MarkResolved" message="tns:IErrorTrackingService_MarkResolved_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/MarkResolvedResponse" message="tns:IErrorTrackingService_MarkResolved_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/GetAllErrors" message="tns:IErrorTrackingService_GetAllErrors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/GetAllErrorsResponse" message="tns:IErrorTrackingService_GetAllErrors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorsByCause">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/GetErrorsByCause" message="tns:IErrorTrackingService_GetErrorsByCause_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/GetErrorsByCauseResponse" message="tns:IErrorTrackingService_GetErrorsByCause_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IErrorTrackingService/GetErrorByID" message="tns:IErrorTrackingService_GetErrorByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IErrorTrackingService/GetErrorByIDResponse" message="tns:IErrorTrackingService_GetErrorByID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="docc" type="tns:IErrorTrackingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SubmitError">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/SubmitError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnresolvedErrors">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/GetUnresolvedErrors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResolvedErrors">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/GetResolvedErrors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkResolved">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/MarkResolved" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllErrors">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/GetAllErrors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorsByCause">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/GetErrorsByCause" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrorByID">
+      <soap:operation soapAction="http://tempuri.org/IErrorTrackingService/GetErrorByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ErrorTrackingService">
+    <wsdl:port name="docc" binding="tns:docc">
+      <soap:address location="http://errortracking.terrasynq.net/ErrorTracking.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Terrasynq.Tracking" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://errortracking.terrasynq.net/ErrorTracking.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="TrackingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateLogged" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorCause" nillable="true" type="tns:ErrorCauses" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HtmlErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRead" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsResolved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PostData" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="QueryStringData" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="RawUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerVariables" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="SessionData" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="SiteKey" type="ser:guid" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAccountName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackingInfo" nillable="true" type="tns:TrackingInfo" />
+  <xs:simpleType name="ErrorCauses">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Bug" />
+      <xs:enumeration value="MissingFile" />
+      <xs:enumeration value="IncorrectPath" />
+      <xs:enumeration value="ObsoleteLink" />
+      <xs:enumeration value="Attack" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ErrorCauses" nillable="true" type="tns:ErrorCauses" />
+  <xs:complexType name="ArrayOfKeyValueModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueModel" nillable="true" type="tns:KeyValueModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueModel" nillable="true" type="tns:ArrayOfKeyValueModel" />
+  <xs:complexType name="KeyValueModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KeyValueModel" nillable="true" type="tns:KeyValueModel" />
+  <xs:complexType name="ArrayOfErrorTrackingSummaryModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorTrackingSummaryModel" nillable="true" type="tns:ErrorTrackingSummaryModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorTrackingSummaryModel" nillable="true" type="tns:ArrayOfErrorTrackingSummaryModel" />
+  <xs:complexType name="ErrorTrackingSummaryModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessageID" type="xs:long" />
+      <xs:element minOccurs="0" name="LastID" type="xs:long" />
+      <xs:element minOccurs="0" name="LastOccurence" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Occurences" type="xs:int" />
+      <xs:element minOccurs="0" name="RawUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RawUrlID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorTrackingSummaryModel" nillable="true" type="tns:ErrorTrackingSummaryModel" />
+  <xs:complexType name="ArrayOfTrackingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" nillable="true" type="tns:TrackingInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrackingInfo" nillable="true" type="tns:ArrayOfTrackingInfo" />
+  <xs:complexType name="ErrorTrackingModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateLogged" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorCause" nillable="true" type="tns:ErrorCauses" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessageID" type="xs:long" />
+      <xs:element minOccurs="0" name="ErrorPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HtmlErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsResolved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LogID" type="xs:long" />
+      <xs:element minOccurs="0" name="PostData" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="QueryStringData" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="RawURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RawURLID" type="xs:long" />
+      <xs:element minOccurs="0" name="ServerVariables" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="SessionData" nillable="true" type="tns:ArrayOfKeyValueModel" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAccountName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorTrackingModel" nillable="true" type="tns:ErrorTrackingModel" />
+</xs:schema>
