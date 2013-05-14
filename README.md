@@ -5,6 +5,7 @@ ErrorSynq API client
 
 
 Configuring your application in .NET
+
 1. First, add it as a reference to your application, or install it from NuGet
 
 2. Add the API key provided in your account to your web.config file
