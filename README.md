@@ -1,4 +1,4 @@
-errorsynq
+ErrorSynq Client
 =========
 
 ErrorSynq API client
