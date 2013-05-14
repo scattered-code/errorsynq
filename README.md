@@ -1,8 +1,5 @@
-ErrorSynq Client
-=========
-
 ErrorSynq API client
-
+=========
 
 Configuring your application in .NET
 
